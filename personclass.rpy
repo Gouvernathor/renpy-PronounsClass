@@ -1,15 +1,19 @@
 define MALEGENDER = _("Male")
 define FEMALEGENDER = _("Female")
+# you could set these as man/woman, doesn't really matter
+define MALEGENDERS = {MALEGENDER}
+define FEMALEGENDERS = {FEMALEGENDER}
+# You can add more male- or female-managed genders in these sets.
 
 init python:
 
     class Person(object):
         """To manipulate gender, pronouns, customizable infos, Characters, and maybe layeredimages from a single place !"""
-        def __init__(self, char=adv, gender=None, pronouns=[None, None, None, None, None], name=None, disp=None):
+        def __init__(self, char=adv, gender=None, pronouns=[], name=None, disp=None):
             super(Person, self).__init__()
             self.char = char # an instance of Character() goes here (or the empty nameless character by default)
             self.gender = gender # MALEGENDER, FEMALEGENDER, or some custom stuff
-            self.__they, self.__them, self.__their, self.__theyre, self.__theyare = pronouns # [they, them, their, they're, they are] as strings
+            self.__they, self.__them, self.__their, self.__theyre, self.__theyare = (pronouns+[None]*5)[:5] # [they, them, their, they're, they are] as strings
             self.__name = name or self.char.name # useful if not setting a char, or if using different names between dialog labels and anywhere else
             self.disp = disp # a Displayable or a list thereof, doesn't really mater as it's meant to be accessed directly in the code
 
@@ -31,9 +35,9 @@ init python:
 
         def __pronounchoice(self, masc, fem, neut):
             """Makes the actual choice between pronoun options"""
-            if self.gender == MALEGENDER:
+            if self.gender in MALEGENDERS:
                 return masc
-            elif self.gender == FEMALEGENDER:
+            elif self.gender in FEMALEGENDERS:
                 return fem
             else:
                 return neut
@@ -64,13 +68,15 @@ init python:
             th = self.they
             if th in {_("they")}: # could have used == but this way is simpler to add plural pronouns
                 return th+plur
-            elif th in {_("he"), _("she")} or self.gender in {MALEGENDER, FEMALEGENDER}:
+            elif th in {_("he"), _("she")} or self.gender in MALEGENDERS|FEMALEGENDERS:
                 return th+sing
             else:
                 # will only happen if self.they() returns something unexpected
                 # for example if you modify the pronoun constants in self.they() and forget to apply them here
                 # or if the character has another pronoun and no binary gender
                 raise NotImplementedError
+                # raises an exception if used in python code, but not in dialogue
+                # where it will display the [remy.theyre] clause verbatim
 
         @property
         def theyre(self):
