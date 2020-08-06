@@ -1,5 +1,5 @@
 # RenPron-class
-A Person class for Ren'py able to manage the pronouns of one of several characters.
+A Person class for Ren'py able to manage the pronouns of one or several characters.
 
 The `personclass.rpy` file contains the python class itself (and the constants that goes with it).
 
