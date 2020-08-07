@@ -19,13 +19,14 @@ label start:
     e.char "You've created a new Ren'Py game."
     
     "Oh no ! All characters here seem to adress themselves in the third person !"
-    e.char "Hi ! [e.theyare!c] named [e.name], and adressing [e.them]self at the third person is so cool ! My gender is [e.gender]."
-    angrye.char "Hi ! [angrye.theyare!c] named [angrye.name], and adressing [angrye.them]self at the third person is so cool ! My gender is [angrye.gender]."
-    remy.char "Hi ! [remy.theyare!c] named [remy.name], and adressing [remy.them]self at the third person is so cool ! My gender is [remy.gender]."
-    doug.char "Hi ! [doug.theyare!c] named [doug.name], and adressing [doug.them]self at the third person is so cool ! My gender is [doug.gender]."
+    e.char "Hi ! [e.theyare!c] named [e.name], and adressing [e.them]self at the third person is so cool ! My gender is [e.gender!l]."
+    angrye.char "Hi ! [angrye.theyare!c] named [angrye.name], and adressing [angrye.them]self at the third person is so cool ! My gender is [angrye.gender!l]."
+    remy.char "Hi ! [remy.theyare!c] named [remy.name], and adressing [remy.them]self at the third person is so cool ! My gender is [remy.gender!l]."
+    jamie.char "Hi ! [jamie.theyare!c] named [jamie.name], and adressing [jamie.them]self at the third person is so cool ! My gender is [jamie.gender!l]."
+    doug.char "Hi ! [doug.theyare!c] named [doug.name], and adressing [doug.them]self at the third person is so cool ! My gender is [doug.gender!l]."
     
     # unfortunately something like ("They adress/He adresses") can't be treated properly
-    # as it would either need one property per verb, since methods or functions can't be called in dialogue substitution.
+    # as it would need one property per verb, since methods or functions can't be called in dialogue substitution.
 
     # This ends the game.
 
