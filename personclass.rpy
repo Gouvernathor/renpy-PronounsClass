@@ -9,11 +9,11 @@ init python:
 
     class Person(object):
         """To manipulate gender, pronouns, customizable infos, Characters, and maybe layeredimages from a single place !"""
-        def __init__(self, char=adv, gender=None, pronouns=[], name=None, disp=None):
+        def __init__(self, char=adv, gender=None, pronouns=(), name=None, disp=None):
             super(Person, self).__init__()
             self.char = char # an instance of Character() goes here (or the empty nameless character by default)
             self.gender = gender # MALEGENDER, FEMALEGENDER, or some custom stuff
-            self._they, self._them, self._their, self._theyre, self._theyare = (pronouns+[None]*5)[:5] # [they, them, their, they're, they are] as strings
+            self._they, self._them, self._their, self._theyre, self._theyare = (tuple(pronouns)+(None,)*5)[:5] # [they, them, their, they're, they are] as strings
             self._name = name or self.char.name # useful if not setting a char, or if using different names between dialog labels and anywhere else
             self.disp = disp # a Displayable or a list thereof, doesn't really mater as it's meant to be accessed directly in the code
 
