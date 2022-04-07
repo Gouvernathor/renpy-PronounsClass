@@ -45,7 +45,7 @@ init python:
         @property
         def they(self):
             return self._they or self._pronounchoice(_("he"), _("she"), _("they"))
-            # apply any changes to these constants also in the theyre() method !
+            # apply any changes to these constants also in the _pluralchoice() method !
         @they.setter
         def they(self, they):
             self._they = they
