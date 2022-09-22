@@ -39,7 +39,7 @@ label start:
     angrye "Hi ! [angrye.theyare!c] named [character.angrye], and adressing [angrye.them]self at the third person is so cool ! My gender is [angrye.gender!l]."
     remy "Hi ! [remy.theyare!c] named [character.remy], and adressing [remy.them]self at the third person is so cool ! My gender is [remy.gender!l]."
     jamie "Hi ! [jamie.theyare!c] named [character.jamie], and adressing [jamie.them]self at the third person is so cool ! My gender is [jamie.gender!l]."
-    doug "Hi ! [doug.theyare!c] named [character.doug], and adressing [doug.them]self at the third person is so cool ! My gender is [doug.gender!l]."
+    doug "Hi ! [doug.theyare!c] named [doug.name], and adressing [doug.them]self at the third person is so cool ! My gender is [doug.gender!l]."
 
     # unfortunately something like ("They adress/He adresses") can't be treated properly
     # as it would need one property per verb, since methods or functions can't be called in dialogue substitution.
