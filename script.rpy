@@ -35,11 +35,11 @@ label start:
     # The square-bracket interpolation will not, and will only access the Person objects.
 
     "Oh no ! All characters here seem to adress themselves in the third person !"
-    e "Hi ! [e.theyare!c] named [e.name], and adressing [e.them]self at the third person is so cool ! My gender is [e.gender!l]."
-    angrye "Hi ! [angrye.theyare!c] named [angrye.name], and adressing [angrye.them]self at the third person is so cool ! My gender is [angrye.gender!l]."
-    remy "Hi ! [remy.theyare!c] named [remy.name], and adressing [remy.them]self at the third person is so cool ! My gender is [remy.gender!l]."
-    jamie "Hi ! [jamie.theyare!c] named [jamie.name], and adressing [jamie.them]self at the third person is so cool ! My gender is [jamie.gender!l]."
-    doug "Hi ! [doug.theyare!c] named [doug.name], and adressing [doug.them]self at the third person is so cool ! My gender is [doug.gender!l]."
+    e "Hi ! [e.theyare!c] named [character.e], and adressing [e.them]self at the third person is so cool ! My gender is [e.gender!l]."
+    angrye "Hi ! [angrye.theyare!c] named [character.angrye], and adressing [angrye.them]self at the third person is so cool ! My gender is [angrye.gender!l]."
+    remy "Hi ! [remy.theyare!c] named [character.remy], and adressing [remy.them]self at the third person is so cool ! My gender is [remy.gender!l]."
+    jamie "Hi ! [jamie.theyare!c] named [character.jamie], and adressing [jamie.them]self at the third person is so cool ! My gender is [jamie.gender!l]."
+    doug "Hi ! [doug.theyare!c] named [character.doug], and adressing [doug.them]self at the third person is so cool ! My gender is [doug.gender!l]."
 
     # unfortunately something like ("They adress/He adresses") can't be treated properly
     # as it would need one property per verb, since methods or functions can't be called in dialogue substitution.
