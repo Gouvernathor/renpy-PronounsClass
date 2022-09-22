@@ -1,28 +1,18 @@
-define MALEGENDER = _("Male")
-define FEMALEGENDER = _("Female")
+define pron.MALEGENDER = _("Male")
+define pron.FEMALEGENDER = _("Female")
 # you could set these as man/woman, doesn't really matter
-define MALEGENDERS = {MALEGENDER}
-define FEMALEGENDERS = {FEMALEGENDER}
+define pron.MALEGENDERS = {MALEGENDER}
+define pron.FEMALEGENDERS = {FEMALEGENDER}
 # You can add more male- or female-managed genders in these sets.
 
-init python:
+init python in pron:
 
-    class Person(object):
+    class Person:
         """To manipulate gender, pronouns, customizable infos, Characters, and maybe layeredimages from a single place !"""
-        def __init__(self, char=adv, gender=None, pronouns=(), name=None, disp=None):
-            super(Person, self).__init__()
-            self.char = char # an instance of Character() goes here (or the empty nameless character by default)
+        def __init__(self, gender=None, pronouns=(), name=None):
             self.gender = gender # MALEGENDER, FEMALEGENDER, or some custom stuff
             self._they, self._them, self._their, self._theyre, self._theyare = (tuple(pronouns)+(None,)*5)[:5] # [they, them, their, they're, they are] as strings
-            self._name = name or self.char.name # useful if not setting a char, or if using different names between dialog labels and anywhere else
-            self.disp = disp # a Displayable or a list thereof, doesn't really mater as it's meant to be accessed directly in the code
-
-        @property
-        def name(self):
-            return self._name or self.char.name
-        @name.setter
-        def name(self, name):
-            self._name = name
+            self.name = name # useful if using different names between dialog labels and anywhere else
 
         ## The pronouns
         # The capitalized versions of the pronouns ("They" for "they", etc) are not included
